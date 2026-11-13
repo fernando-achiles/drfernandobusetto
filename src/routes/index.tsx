@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { MessageCircle, MapPin, Phone, Clock, Award, Stethoscope, HeartPulse, Leaf } from "lucide-react";
+import { MessageCircle, MapPin, Phone, Clock, Award, Stethoscope, HeartPulse, Leaf, Menu, X } from "lucide-react";
 import doctor from "@/assets/doctor.jpeg.asset.json";
 import s1 from "@/assets/space-1.jpg.asset.json";
 import s2 from "@/assets/space-2.jpg.asset.json";
@@ -45,9 +46,18 @@ const specialties = [
 const gallery = [
   { src: s2.url, alt: "Recepção" }, { src: s1.url, alt: "Sala de consulta" }, { src: s3.url, alt: "Corredor" },
   { src: s4.url, alt: "Sala de espera" }, { src: s5.url, alt: "Sala de exames" }, { src: s6.url, alt: "Aquário na recepção" },
+  { src: s7.url, alt: "Prédio do consultório" },
+];
+
+const navLinks = [
+  { href: "#sobre", label: "Sobre mim" },
+  { href: "#especialidades", label: "Especialidades" },
+  { href: "#espaco", label: "Nosso espaço" },
+  { href: "#contato", label: "Contato" },
 ];
 
 function Index() {
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
@@ -57,12 +67,37 @@ function Index() {
             <span className="block text-[11px] uppercase tracking-[0.25em] text-gold">Nefrologia · Nutrologia · Clínica Médica</span>
           </a>
           <nav className="hidden gap-8 text-sm font-medium text-muted-foreground md:flex">
-            <a href="#sobre" className="hover:text-primary">Sobre mim</a>
-            <a href="#especialidades" className="hover:text-primary">Especialidades</a>
-            <a href="#espaco" className="hover:text-primary">Nosso espaço</a>
-            <a href="#contato" className="hover:text-primary">Contato</a>
+            {navLinks.map((l) => (
+              <a key={l.href} href={l.href} className="hover:text-primary">{l.label}</a>
+            ))}
           </nav>
+          <button
+            type="button"
+            aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((v) => !v)}
+            className="flex h-10 w-10 items-center justify-center rounded-md text-primary md:hidden"
+          >
+            {menuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
         </div>
+        {menuOpen && (
+          <nav className="border-t border-border bg-background px-6 py-4 md:hidden">
+            <ul className="space-y-1 text-sm font-medium text-muted-foreground">
+              {navLinks.map((l) => (
+                <li key={l.href}>
+                  <a
+                    href={l.href}
+                    onClick={() => setMenuOpen(false)}
+                    className="block rounded-md px-3 py-3 hover:bg-secondary hover:text-primary"
+                  >
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )}
       </header>
 
       <section id="inicio" className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-16 md:grid-cols-2 md:py-24">
@@ -132,8 +167,8 @@ function Index() {
           <h2 className="mt-3 font-display text-4xl font-semibold text-primary">Um ambiente pensado para você</h2>
           <div className="gold-rule my-6" />
           <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
-            {gallery.map((g) => (
-              <figure key={g.alt} className="overflow-hidden rounded-xl ring-1 ring-gold/30">
+            {gallery.map((g, i) => (
+              <figure key={g.alt} className={`overflow-hidden rounded-xl ring-1 ring-gold/30 ${i === gallery.length - 1 ? "col-span-2 md:col-span-1" : ""}`}>
                 <img src={g.src} alt={g.alt} loading="lazy" className="aspect-square w-full object-cover transition duration-500 hover:scale-105" />
               </figure>
             ))}
@@ -141,8 +176,8 @@ function Index() {
         </div>
       </section>
 
-      <section id="contato" className="mx-auto grid max-w-6xl gap-10 px-6 py-20 md:grid-cols-2">
-        <div>
+      <section id="contato" className="mx-auto max-w-6xl px-6 py-20">
+        <div className="max-w-2xl">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold">Contato</p>
           <h2 className="mt-3 font-display text-4xl font-semibold text-primary">Agende sua consulta</h2>
           <div className="gold-rule my-6" />
@@ -152,9 +187,6 @@ function Index() {
             <li className="flex gap-3"><Clock className="h-5 w-5 shrink-0 text-gold" />Atendimento a partir das 07:30</li>
           </ul>
           <div className="mt-8"><WaButton label="Falar no WhatsApp" /></div>
-        </div>
-        <div className="overflow-hidden rounded-xl ring-1 ring-gold/30">
-          <img src={s7.url} alt="Prédio do consultório" className="h-full min-h-64 w-full object-cover" />
         </div>
       </section>
 
