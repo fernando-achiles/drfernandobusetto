@@ -67,12 +67,37 @@ function Index() {
             <span className="block text-[11px] uppercase tracking-[0.25em] text-gold">Nefrologia · Nutrologia · Clínica Médica</span>
           </a>
           <nav className="hidden gap-8 text-sm font-medium text-muted-foreground md:flex">
-            <a href="#sobre" className="hover:text-primary">Sobre mim</a>
-            <a href="#especialidades" className="hover:text-primary">Especialidades</a>
-            <a href="#espaco" className="hover:text-primary">Nosso espaço</a>
-            <a href="#contato" className="hover:text-primary">Contato</a>
+            {navLinks.map((l) => (
+              <a key={l.href} href={l.href} className="hover:text-primary">{l.label}</a>
+            ))}
           </nav>
+          <button
+            type="button"
+            aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((v) => !v)}
+            className="flex h-10 w-10 items-center justify-center rounded-md text-primary md:hidden"
+          >
+            {menuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
         </div>
+        {menuOpen && (
+          <nav className="border-t border-border bg-background px-6 py-4 md:hidden">
+            <ul className="space-y-1 text-sm font-medium text-muted-foreground">
+              {navLinks.map((l) => (
+                <li key={l.href}>
+                  <a
+                    href={l.href}
+                    onClick={() => setMenuOpen(false)}
+                    className="block rounded-md px-3 py-3 hover:bg-secondary hover:text-primary"
+                  >
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        )}
       </header>
 
       <section id="inicio" className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-16 md:grid-cols-2 md:py-24">
