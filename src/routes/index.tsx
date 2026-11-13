@@ -134,7 +134,7 @@ function Index() {
             {[
               { t: "Trajetória e registros", d: "Formado em Medicina pela UFPEL (1994), com mais de 30 anos de profissão (CRM-SC 8059). Residência em Nefrologia pela Santa Casa de Porto Alegre (RQE 5603) e título em Medicina Intensiva pela AMIB (RQE 10976)." },
               { t: "Nutrologia", d: "Pós-graduado em Nutrologia e Metabologia pela Faculdade Unimed." },
-              { t: "Experiência na região", d: "Atua em Concórdia desde 1998: Diretor Clínico e coordenador da UTI Adulto do Hospital São Francisco, coordenador do Serviço de Hemodiálise do HSF, presidente da Unimed Concórdia (2006–2012) e mais de 20 anos dedicados à nefrologia e à saúde pública no município." },
+              { t: "Experiência na região", d: "Atua em Concórdia desde 1998: Diretor Clínico e coordenador da UTI Adulto do Hospital São Francisco, coordenador do Serviço de Hemodiálise do HSF, presidente da Unimed Concórdia (2006–2012) e mais de 20 anos dedicados à nefrologia e à saúde pública no município. Atualmente diretor do Departamento de Clínica Médica e Vice-Diretor Clínico do Hospital Unimed Concórdia (HUC)." },
             ].map((c) => (
               <div key={c.t} className="rounded-xl border-t-2 border-gold bg-background p-6 shadow-sm">
                 <Award className="h-6 w-6 text-gold" />
