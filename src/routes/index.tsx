@@ -2,11 +2,11 @@ import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { MessageCircle, MapPin, Phone, Clock, Award, Stethoscope, HeartPulse, Leaf, Menu, X } from "lucide-react";
 import doctor from "@/assets/doctor.jpeg.asset.json";
-import s1 from "@/assets/space-1.jpg.asset.json";
-import s3 from "@/assets/space-3.jpg.asset.json";
-import s4 from "@/assets/space-4.jpg.asset.json";
-import s5 from "@/assets/space-5.jpg.asset.json";
-import s6 from "@/assets/space-6.jpg.asset.json";
+import aquario from "@/assets/aquario-recepcao.webp.asset.json";
+import consultorio from "@/assets/consultorio-janela.webp.asset.json";
+import espera from "@/assets/sala-de-espera.webp.asset.json";
+import atendimento from "@/assets/sala-de-atendimento.webp.asset.json";
+import exames from "@/assets/sala-de-exames.webp.asset.json";
 import building from "@/assets/edificio-das-clinicas.jpg.asset.json";
 
 const MSG =
@@ -44,8 +44,11 @@ const specialties = [
 
 const gallery: { src: string; alt: string; pos?: string }[] = [
   { src: building.url, alt: "Prédio do consultório – Edifício das Clínicas", pos: "object-[50%_78%]" },
-  { src: s1.url, alt: "Sala de consulta" }, { src: s3.url, alt: "Corredor" },
-  { src: s4.url, alt: "Sala de espera" }, { src: s5.url, alt: "Sala de exames" }, { src: s6.url, alt: "Aquário na recepção" },
+  { src: aquario.url, alt: "Aquário embutido na parede da recepção" },
+  { src: consultorio.url, alt: "Consultório com mesa de trabalho, poltronas e janela" },
+  { src: espera.url, alt: "Sala de espera com poltronas, plantas e quadros" },
+  { src: atendimento.url, alt: "Sala de atendimento com mesa e poltronas para o paciente" },
+  { src: exames.url, alt: "Sala de exames com maca e balança" },
 ];
 
 const navLinks = [
