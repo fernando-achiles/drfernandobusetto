@@ -167,8 +167,8 @@ function Index() {
           <h2 className="mt-3 font-display text-4xl font-semibold text-primary">Um ambiente pensado para você</h2>
           <div className="gold-rule my-6" />
           <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
-            {gallery.map((g) => (
-              <figure key={g.alt} className="overflow-hidden rounded-xl ring-1 ring-gold/30">
+            {gallery.map((g, i) => (
+              <figure key={g.alt} className={`overflow-hidden rounded-xl ring-1 ring-gold/30 ${i === gallery.length - 1 ? "col-span-2 md:col-span-1" : ""}`}>
                 <img src={g.src} alt={g.alt} loading="lazy" className="aspect-square w-full object-cover transition duration-500 hover:scale-105" />
               </figure>
             ))}
@@ -176,8 +176,8 @@ function Index() {
         </div>
       </section>
 
-      <section id="contato" className="mx-auto grid max-w-6xl gap-10 px-6 py-20 md:grid-cols-2">
-        <div>
+      <section id="contato" className="mx-auto max-w-6xl px-6 py-20">
+        <div className="max-w-2xl">
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-gold">Contato</p>
           <h2 className="mt-3 font-display text-4xl font-semibold text-primary">Agende sua consulta</h2>
           <div className="gold-rule my-6" />
