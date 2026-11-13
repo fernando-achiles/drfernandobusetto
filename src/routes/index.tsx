@@ -46,7 +46,7 @@ const specialties = [
 const gallery = [
   { src: s2.url, alt: "Recepção" }, { src: s1.url, alt: "Sala de consulta" }, { src: s3.url, alt: "Corredor" },
   { src: s4.url, alt: "Sala de espera" }, { src: s5.url, alt: "Sala de exames" }, { src: s6.url, alt: "Aquário na recepção" },
-  { src: s7.url, alt: "Prédio do consultório" },
+  { src: building.url, alt: "Prédio do consultório – Edifício das Clínicas" },
 ];
 
 const navLinks = [
