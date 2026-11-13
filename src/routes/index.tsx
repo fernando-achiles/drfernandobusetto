@@ -8,7 +8,7 @@ import s3 from "@/assets/space-3.jpg.asset.json";
 import s4 from "@/assets/space-4.jpg.asset.json";
 import s5 from "@/assets/space-5.jpg.asset.json";
 import s6 from "@/assets/space-6.jpg.asset.json";
-import s7 from "@/assets/space-7.jpg.asset.json";
+import building from "@/assets/edificio-das-clinicas.jpg.asset.json";
 
 const MSG =
   "Olá! Gostaria de obter mais informações sobre os serviços oferecidos pela clínica e verificar a disponibilidade de horários para agendamento de uma consulta.\nAguardo o retorno.\nObrigado(a)!";
@@ -40,13 +40,13 @@ function WaButton({ label = "Agendar pelo WhatsApp" }: { label?: string }) {
 const specialties = [
   { icon: Stethoscope, t: "Nefrologia", d: "Diagnóstico, prevenção e tratamento de doenças renais e hipertensão." },
   { icon: HeartPulse, t: "Clínica Médica e Medicina Intensiva", d: "Manejo de doenças crônicas complexas, check-ups e avaliação clínica detalhada." },
-  { icon: Leaf, t: "Pós-Graduação em Nutrologia", d: "Abordagem voltada à vitalidade, emagrecimento, reeducação e suporte metabólico." },
+  { icon: Leaf, t: "Pós-Graduação em Nutrologia", d: "Abordagem voltada ao emagrecimento, reeducação alimentar, suporte metabólico e vitalidade." },
 ];
 
 const gallery = [
   { src: s2.url, alt: "Recepção" }, { src: s1.url, alt: "Sala de consulta" }, { src: s3.url, alt: "Corredor" },
   { src: s4.url, alt: "Sala de espera" }, { src: s5.url, alt: "Sala de exames" }, { src: s6.url, alt: "Aquário na recepção" },
-  { src: s7.url, alt: "Prédio do consultório" },
+  { src: building.url, alt: "Prédio do consultório – Edifício das Clínicas" },
 ];
 
 const navLinks = [
@@ -167,11 +167,14 @@ function Index() {
           <h2 className="mt-3 font-display text-4xl font-semibold text-primary">Um ambiente pensado para você</h2>
           <div className="gold-rule my-6" />
           <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
-            {gallery.map((g, i) => (
-              <figure key={g.alt} className={`overflow-hidden rounded-xl ring-1 ring-gold/30 ${i === gallery.length - 1 ? "col-span-2 md:col-span-1" : ""}`}>
-                <img src={g.src} alt={g.alt} loading="lazy" className="aspect-square w-full object-cover transition duration-500 hover:scale-105" />
-              </figure>
-            ))}
+            {gallery.map((g, i) => {
+              const last = i === gallery.length - 1;
+              return (
+                <figure key={g.alt} className={`overflow-hidden rounded-xl ring-1 ring-gold/30 ${last ? "col-span-2 md:col-start-2 md:col-span-1" : ""}`}>
+                  <img src={g.src} alt={g.alt} loading="lazy" className={`aspect-square w-full object-cover transition duration-500 hover:scale-105 ${last ? "object-[50%_78%]" : ""}`} />
+                </figure>
+              );
+            })}
           </div>
         </div>
       </section>
