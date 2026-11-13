@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { MessageCircle, MapPin, Phone, Clock, Award, Stethoscope, HeartPulse, Leaf } from "lucide-react";
+import { MessageCircle, MapPin, Phone, Clock, Award, Stethoscope, HeartPulse, Leaf, Menu, X } from "lucide-react";
 import doctor from "@/assets/doctor.jpeg.asset.json";
 import s1 from "@/assets/space-1.jpg.asset.json";
 import s2 from "@/assets/space-2.jpg.asset.json";
@@ -45,9 +46,18 @@ const specialties = [
 const gallery = [
   { src: s2.url, alt: "Recepção" }, { src: s1.url, alt: "Sala de consulta" }, { src: s3.url, alt: "Corredor" },
   { src: s4.url, alt: "Sala de espera" }, { src: s5.url, alt: "Sala de exames" }, { src: s6.url, alt: "Aquário na recepção" },
+  { src: s7.url, alt: "Prédio do consultório" },
+];
+
+const navLinks = [
+  { href: "#sobre", label: "Sobre mim" },
+  { href: "#especialidades", label: "Especialidades" },
+  { href: "#espaco", label: "Nosso espaço" },
+  { href: "#contato", label: "Contato" },
 ];
 
 function Index() {
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
