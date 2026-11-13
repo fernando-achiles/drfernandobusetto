@@ -186,7 +186,7 @@ function Index() {
           <ul className="space-y-4 text-muted-foreground">
             <li className="flex gap-3"><MapPin className="h-5 w-5 shrink-0 text-gold" />R. Getúlio Vargas, 500 – 2º andar, sala 206 – Centro, Concórdia – SC, 89700-017</li>
             <li className="flex gap-3"><Phone className="h-5 w-5 shrink-0 text-gold" />(49) 3442-1016 · WhatsApp (49) 99129-4272</li>
-            <li className="flex gap-3"><Clock className="h-5 w-5 shrink-0 text-gold" />Atendimento a partir das 07:30</li>
+            <li className="flex gap-3"><Clock className="h-5 w-5 shrink-0 text-gold" />Atendimento a partir das 07:30 às 17:30</li>
           </ul>
           <div className="mt-8"><WaButton label="Falar no WhatsApp" /></div>
         </div>
