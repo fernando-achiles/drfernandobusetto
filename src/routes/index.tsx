@@ -188,9 +188,6 @@ function Index() {
           </ul>
           <div className="mt-8"><WaButton label="Falar no WhatsApp" /></div>
         </div>
-        <div className="overflow-hidden rounded-xl ring-1 ring-gold/30">
-          <img src={s7.url} alt="Prédio do consultório" className="h-full min-h-64 w-full object-cover" />
-        </div>
       </section>
 
       <footer className="bg-primary py-8 text-center text-sm text-primary-foreground/80">
