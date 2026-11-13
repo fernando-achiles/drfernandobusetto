@@ -3,7 +3,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { MessageCircle, MapPin, Phone, Clock, Award, Stethoscope, HeartPulse, Leaf, Menu, X } from "lucide-react";
 import doctor from "@/assets/doctor.jpeg.asset.json";
 import s1 from "@/assets/space-1.jpg.asset.json";
-import s2 from "@/assets/space-2.jpg.asset.json";
 import s3 from "@/assets/space-3.jpg.asset.json";
 import s4 from "@/assets/space-4.jpg.asset.json";
 import s5 from "@/assets/space-5.jpg.asset.json";
@@ -43,10 +42,10 @@ const specialties = [
   { icon: Leaf, t: "Pós-Graduação em Nutrologia", d: "Abordagem voltada ao emagrecimento, reeducação alimentar, suporte metabólico e vitalidade." },
 ];
 
-const gallery = [
-  { src: s2.url, alt: "Recepção" }, { src: s1.url, alt: "Sala de consulta" }, { src: s3.url, alt: "Corredor" },
+const gallery: { src: string; alt: string; pos?: string }[] = [
+  { src: building.url, alt: "Prédio do consultório – Edifício das Clínicas", pos: "object-[50%_78%]" },
+  { src: s1.url, alt: "Sala de consulta" }, { src: s3.url, alt: "Corredor" },
   { src: s4.url, alt: "Sala de espera" }, { src: s5.url, alt: "Sala de exames" }, { src: s6.url, alt: "Aquário na recepção" },
-  { src: building.url, alt: "Prédio do consultório – Edifício das Clínicas" },
 ];
 
 const navLinks = [
@@ -167,14 +166,11 @@ function Index() {
           <h2 className="mt-3 font-display text-4xl font-semibold text-primary">Um ambiente pensado para você</h2>
           <div className="gold-rule my-6" />
           <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
-            {gallery.map((g, i) => {
-              const last = i === gallery.length - 1;
-              return (
-                <figure key={g.alt} className={`overflow-hidden rounded-xl ring-1 ring-gold/30 ${last ? "col-span-2 md:col-start-2 md:col-span-1" : ""}`}>
-                  <img src={g.src} alt={g.alt} loading="lazy" className={`aspect-square w-full object-cover transition duration-500 hover:scale-105 ${last ? "object-[50%_78%]" : ""}`} />
-                </figure>
-              );
-            })}
+            {gallery.map((g) => (
+              <figure key={g.alt} className="overflow-hidden rounded-xl ring-1 ring-gold/30">
+                <img src={g.src} alt={g.alt} loading="lazy" className={`aspect-square w-full object-cover transition duration-500 hover:scale-105 ${g.pos ?? ""}`} />
+              </figure>
+            ))}
           </div>
         </div>
       </section>
