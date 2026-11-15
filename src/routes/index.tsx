@@ -1,13 +1,6 @@
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { MessageCircle, MapPin, Phone, Clock, Award, Stethoscope, HeartPulse, Leaf, Menu, X } from "lucide-react";
-import doctor from "@/assets/doctor.jpeg.asset.json";
-import aquario from "@/assets/aquario-recepcao.webp.asset.json";
-import consultorio from "@/assets/consultorio-janela.webp.asset.json";
-import espera from "@/assets/sala-de-espera.webp.asset.json";
-import atendimento from "@/assets/sala-de-atendimento.webp.asset.json";
-import exames from "@/assets/sala-de-exames.webp.asset.json";
-import building from "@/assets/edificio-das-clinicas.jpg.asset.json";
 
 const MSG =
   "Olá! Gostaria de obter mais informações sobre os serviços oferecidos pela clínica e verificar a disponibilidade de horários para agendamento de uma consulta.\nAguardo o retorno.\nObrigado(a)!";
@@ -43,12 +36,12 @@ const specialties = [
 ];
 
 const gallery: { src: string; alt: string; pos?: string }[] = [
-  { src: building.url, alt: "Prédio do consultório – Edifício das Clínicas", pos: "object-[50%_78%]" },
-  { src: aquario.url, alt: "Aquário embutido na parede da recepção" },
-  { src: consultorio.url, alt: "Consultório com mesa de trabalho, poltronas e janela" },
-  { src: espera.url, alt: "Sala de espera com poltronas, plantas e quadros" },
-  { src: atendimento.url, alt: "Sala de atendimento com mesa e poltronas para o paciente" },
-  { src: exames.url, alt: "Sala de exames com maca e balança" },
+  { src: "/images/edificio-das-clinicas.jpg", alt: "Prédio do consultório – Edifício das Clínicas", pos: "object-[50%_78%]" },
+  { src: "/images/aquario-recepcao.webp", alt: "Aquário embutido na parede da recepção" },
+  { src: "/images/consultorio-janela.webp", alt: "Consultório com mesa de trabalho, poltronas e janela" },
+  { src: "/images/sala-de-espera.webp", alt: "Sala de espera com poltronas, plantas e quadros" },
+  { src: "/images/sala-de-atendimento.webp", alt: "Sala de atendimento com mesa e poltronas para o paciente" },
+  { src: "/images/sala-de-exames.webp", alt: "Sala de exames com maca e balança" },
 ];
 
 const navLinks = [
@@ -119,7 +112,7 @@ function Index() {
         </div>
         <div className="relative mx-auto w-full max-w-sm fade-up">
           <div className="absolute -inset-3 translate-x-4 translate-y-4 rounded-2xl border border-gold" />
-          <img src={doctor.url} alt="Dr. Fernando Busetto" className="relative aspect-[4/5] w-full rounded-2xl object-cover shadow-2xl" />
+          <img src={"/images/doctor.jpeg"} alt="Dr. Fernando Busetto" className="relative aspect-[4/5] w-full rounded-2xl object-cover shadow-2xl" />
         </div>
       </section>
 
